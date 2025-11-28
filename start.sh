@@ -1,1 +1,3 @@
-start: ./start.sh
+#!/bin/sh
+npm install
+node server.js
