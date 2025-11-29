@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 const pdfPath = path.join(__dirname, 'public', 'check', 'reference-1242080012023055.pdf');
 
@@ -26,4 +25,5 @@ app.use((req, res) => {
     message: 'Access denied'
   });
 });
+
 
