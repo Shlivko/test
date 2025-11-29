@@ -3,28 +3,28 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.get('/download-pdf', (req, res) => {
-  const filePath = path.join(__dirname, 'public', 'reference-1242080012023055.pdf');
-  res.download(filePath, 'reference-1242080012023055.pdf');
-});
+const pdfPath = path.join(__dirname, 'public', 'check', 'reference-1242080012023055.pdf');
 
 app.get('/', (req, res) => {
-  res.send(`
-    <html>
-      <head><meta charset="utf-8"></head>
-      <body>
-        <script>
-          window.location.href = '/download-pdf';
-          setTimeout(() => {
-            window.location.href = 'https://bakai.kg';
-          }, 3000);
-        </script>
-        <p>Если скачивание не началось, <a href="/download-pdf">нажмите сюда</a>.</p>
-      </body>
-    </html>
-  `);
+  res.redirect('/check/reference-1242080012023055.pdf');
+});
+
+app.get('/check/reference-1242080012023055.pdf', (req, res) => {
+  res.download(pdfPath, 'reference-1242080012023055.pdf', (err) => {
+    if (err) {
+      res.status(500).json({
+        result: -1,
+        message: 'Ошибка при скачивании файла'
+      });
+    }
+  });
+});
+
+app.use((req, res) => {
+  res.status(403).json({
+    result: -1,
+    message: 'Access denied'
+  });
 });
 
 app.listen(PORT, () => console.log('Сайт запущен на порту ' + PORT));
