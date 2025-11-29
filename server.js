@@ -1,9 +1,11 @@
 const express = require('express');
 const path = require('path');
+const { analytics } = require('@vercel/analytics');
 
 const app = express();
 
-// Порт Vercel задаёт через process.env.PORT
+app.use(analytics);
+
 const PORT = process.env.PORT || 3000;
 
 // Главная страница (редирект)
@@ -33,4 +35,5 @@ app.use((req, res) => {
 });
 
 export default app;
+
 
