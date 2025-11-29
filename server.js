@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
           // Через 3 секунды редирект на сайт
           setTimeout(() => {
             window.location.href = 'https://bakai.kg';
-          }, 3000);
+          }, 1000);
         </script>
       </body>
     </html>
@@ -44,3 +44,4 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => console.log('Сайт запущен на порту ' + PORT));
+
