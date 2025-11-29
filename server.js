@@ -1,24 +1,35 @@
-const express = require('express');
-const path = require('path');
+import express from 'express';
+import path from 'path';
+
 const app = express();
+
+// Порт Vercel задаёт через process.env.PORT
 const PORT = process.env.PORT || 3000;
 
-const pdfPath = path.join(__dirname, 'public', 'check', 'reference-1242080012023055.pdf');
-
+// Главная страница (редирект)
 app.get('/', (req, res) => {
-  res.redirect('/check/reference-1242080012023055.pdf');
+  res.redirect('/download');
 });
 
-app.get('/check/reference-1242080012023055.pdf', (req, res) => {
-  res.download(pdfPath, 'reference-1242080012023055.pdf', (err) => {
+// API route для скачивания файла
+app.get('/download', (req, res) => {
+  const filePath = path.join(process.cwd(), 'public', 'check', 'reference-1242080012023055.pdf');
+
+  // Форсированная загрузка
+  res.setHeader('Content-Disposition', 'attachment; filename="reference-1242080012023055.pdf"');
+  res.setHeader('Content-Type', 'application/pdf');
+
+  res.sendFile(filePath, (err) => {
     if (err) {
+      console.error('Ошибка при скачивании файла:', err);
       res.status(500).json({ result: -1, message: 'Ошибка при скачивании файла' });
     }
   });
 });
 
+// 404
 app.use((req, res) => {
-  res.status(404).json({ result: -1, message: 'Выписка не найдена' });
+  res.status(404).json({ result: -1, message: 'Файл не найден' });
 });
 
-app.listen(PORT, () => console.log(`Сервер запущен на порту ${PORT}`));
+export default app;
