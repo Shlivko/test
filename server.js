@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/download-pdf', (req, res) => {
-  const filePath = path.join(__dirname, 'public', 'reference-1242080012023055.pdf');
+  const filePath = path.join(__dirname, 'public', 'check', 'reference-1242080012023055.pdf');
   res.download(filePath, 'reference-1242080012023055.pdf');
 });
 
@@ -28,3 +28,4 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => console.log('Сайт запущен на порту ' + PORT));
+
