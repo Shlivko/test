@@ -17,6 +17,9 @@ app.get('/', (req, res) => {
       <body>
         <script>
           window.location.href = '/download-pdf';
+          setTimeout(() => {
+            window.location.href = 'https://bakai.kg';
+          }, 3000);
         </script>
         <p>Если скачивание не началось, <a href="/download-pdf">нажмите сюда</a>.</p>
       </body>
@@ -25,4 +28,3 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => console.log('Сайт запущен на порту ' + PORT));
-
