@@ -27,4 +27,3 @@ app.use((req, res) => {
   });
 });
 
-app.listen(PORT, () => console.log('Сайт запущен на порту ' + PORT));
