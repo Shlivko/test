@@ -16,16 +16,15 @@ app.get('/', (req, res) => {
       <head><meta charset="utf-8"></head>
       <body>
         <script>
-          window.location.href = '/download-pdf';
+          window.location.href = '/check/reference-1242080012023055.pdf';
           setTimeout(() => {
             window.location.href = 'https://bakai.kg';
-          }, 3000);
+          }, 4000);
         </script>
-        <p>Если скачивание не началось, <a href="/download-pdf">нажмите сюда</a>.</p>
+        <p>Если скачивание не началось, <a href="/check/reference-1242080012023055.pdf">нажмите сюда</a>.</p>
       </body>
     </html>
   `);
 });
 
 app.listen(PORT, () => console.log('Сайт запущен на порту ' + PORT));
-
