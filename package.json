@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "mode server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "mode server.js",
   },
   "keywords": [],
   "author": "",
