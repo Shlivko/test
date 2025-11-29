@@ -1,7 +1,5 @@
 const express = require('express');
 const path = require('path');
-const { analytics } = require('@vercel/analytics');
-app.use(analytics);
 
 const PORT = process.env.PORT || 3000;
 
@@ -32,6 +30,7 @@ app.use((req, res) => {
 });
 
 export default app;
+
 
 
 
