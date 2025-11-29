@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 const pdfPath = path.join(__dirname, 'public', 'check', 'reference-1242080012023055.pdf');
 
 app.get('/', (req, res) => {
@@ -25,5 +27,6 @@ app.use((req, res) => {
     message: 'Access denied'
   });
 });
+
 
 
