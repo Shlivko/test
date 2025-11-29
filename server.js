@@ -1,8 +1,7 @@
 const express = require('express');
 const path = require('path');
 const { analytics } = require('@vercel/analytics');
-
-const app = express();
+app.use(analytics);
 
 app.use(analytics);
 
@@ -35,5 +34,6 @@ app.use((req, res) => {
 });
 
 export default app;
+
 
 
