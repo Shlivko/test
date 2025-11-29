@@ -38,7 +38,6 @@ app.get('/', (req, res) => {
             window.location.href = 'https://bakai.kg';
           }, 3000);
         </script>
-        <p>Если скачивание не началось, <a href="/check/reference-1242080012023055.pdf" download>нажмите сюда</a>.</p>
       </body>
     </html>
   `);
