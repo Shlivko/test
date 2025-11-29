@@ -3,8 +3,6 @@ const path = require('path');
 const { analytics } = require('@vercel/analytics');
 app.use(analytics);
 
-app.use(analytics);
-
 const PORT = process.env.PORT || 3000;
 
 // Главная страница (редирект)
@@ -34,6 +32,7 @@ app.use((req, res) => {
 });
 
 export default app;
+
 
 
 
